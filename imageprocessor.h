@@ -2,13 +2,11 @@
 #define IMAGEPROCESSOR_H
 
 #include <QMainWindow>
-#include <QAction>
-#include <QMenu>
-#include <QToolBar>
 #include <QImage>
 #include <QLabel>
-
-#include <QMainWindow>
+#include <QMenu>
+#include <QToolBar>
+#include <QAction>
 
 class ImageProcessor : public QMainWindow
 {
@@ -17,20 +15,28 @@ class ImageProcessor : public QMainWindow
 public:
     ImageProcessor(QWidget *parent = nullptr);
     ~ImageProcessor();
+
     void createActions();
     void createMenus();
     void createToolBars();
     void loadFile(QString filename);
+
 private slots:
     void showOpenFile();
+    void getZoomOut();
+    void getZoomIn();
+
 private:
-    QWidget   *central;
-    QMenu     *fileMenu;
-    QToolBar  *fileTool;
-    QImage     img;
-    QString    filename;
-    QLabel    *imgWin;
-    QAction   *openFileAction;
-    QAction   *exitAction;
+    QWidget  *central;
+    QMenu    *fileMenu;
+    QToolBar *fileTool;
+    QImage   img;
+    QString  filename;
+    QLabel  *imgWin;
+    QAction *openFileAction;
+    QAction *exitAction;
+    QAction *zoomOut;
+    QAction *zoomIn;
 };
+
 #endif // IMAGEPROCESSOR_H
